@@ -7,7 +7,7 @@ A RESTful API for [graph-calc](http://electronifie.github.io/graph-calc/index.ht
 **Usage:**  
 ```javascript
 var graphCalcApiServer = require('graphcalc-api');
-var MyGraph = require('./graph'); // you graphcalc implementation
+var MyGraph = require('./graph'); // your graphcalc implementation
 
 var graph = graphCalcApiServer({
   port: 8080,
