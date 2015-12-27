@@ -102,4 +102,13 @@ describe('graphcalc-api', function () {
     });
   });
 
+  describe('helper.route', function () {
+    it('properly encodes URI components', function () {
+      var routeHelper = require('../lib/helpers/route');
+      assert.equal(routeHelper._nodeTypeRoute('foo/bar'), '/node/foo%2Fbar/');
+      assert.equal(routeHelper._edgeTypeRoute('foo/bar'), '/edge/foo%2Fbar/');
+      assert.equal(routeHelper._nodeItemRoute({ id: 'f?b', type: 'foo/bar' }), '/node/foo%2Fbar/f%3Fb');
+      assert.equal(routeHelper._edgeItemRoute({ id: 'f?b', type: 'foo/bar' }), '/edge/foo%2Fbar/f%3Fb');
+    });
+  });
 });
