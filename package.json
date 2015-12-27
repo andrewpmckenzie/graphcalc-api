@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "express": "^4.13.3",
+    "graph-calc": "^0.1.1",
     "lodash": "^3.10.1"
   }
 }
