@@ -55,6 +55,21 @@ describe('graphcalc-api', function () {
     });
   });
 
+  describe('/edge/:TYPE/', function () {
+    it('lists edge type routes.', function (done) {
+      var server = new GraphCalcServer({ graph: TestGraph.createGraph() });
+
+      mockRequest(server.app)
+        .get('/edge/teaches/')
+        .expect(200, {
+          routes: {
+            'teaches-Sue-Chemistry': '/edge/teaches/teaches-Sue-Chemistry',
+            'teaches-Sam-Biology': '/edge/teaches/teaches-Sam-Biology'
+          }
+        }, done);
+    });
+  });
+
   describe('/node/', function () {
     it('lists node routes.', function (done) {
       var server = new GraphCalcServer({ graph: TestGraph.createGraph() });
@@ -72,5 +87,19 @@ describe('graphcalc-api', function () {
     });
   });
 
+  describe('/node/:TYPE/', function () {
+    it('lists node type routes.', function (done) {
+      var server = new GraphCalcServer({ graph: TestGraph.createGraph() });
+
+      mockRequest(server.app)
+        .get('/node/teacher/')
+        .expect(200, {
+          routes: {
+            'teacher-Sue': '/node/teacher/teacher-Sue',
+            'teacher-Sam': '/node/teacher/teacher-Sam'
+          }
+        }, done);
+    });
+  });
 
 });
