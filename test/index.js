@@ -70,6 +70,24 @@ describe('graphcalc-api', function () {
     });
   });
 
+  describe('/edge/:TYPE/:ID/', function () {
+    it('provides edge details.', function (done) {
+      var server = new GraphCalcServer({ graph: TestGraph.createGraph() });
+
+      mockRequest(server.app)
+        .get('/edge/teaches/teaches-Sue-Chemistry')
+        .expect(200, {
+          edge: {
+            'id': 'teaches-Sue-Chemistry',
+            'name': 'teaches-Sue-Chemistry',
+            'type': 'teaches',
+            'from': 'teacher-Sue',
+            'to': 'class-Chemistry'
+          }
+        }, done);
+    });
+  });
+
   describe('/node/', function () {
     it('lists node routes.', function (done) {
       var server = new GraphCalcServer({ graph: TestGraph.createGraph() });
@@ -97,6 +115,22 @@ describe('graphcalc-api', function () {
           routes: {
             'teacher-Sue': '/node/teacher/teacher-Sue',
             'teacher-Sam': '/node/teacher/teacher-Sam'
+          }
+        }, done);
+    });
+  });
+
+  describe('/node/:TYPE/:ID/', function () {
+    it('provides node details.', function (done) {
+      var server = new GraphCalcServer({ graph: TestGraph.createGraph() });
+
+      mockRequest(server.app)
+        .get('/node/teacher/teacher-Sue')
+        .expect(200, {
+          node: {
+            'id': 'teacher-Sue',
+            'name': 'teacher-Sue',
+            'type': 'teacher'
           }
         }, done);
     });
