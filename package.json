@@ -6,9 +6,10 @@
   "scripts": {
     "test": "mocha"
   },
+  "homepage": "https://github.com/andrewpmckenzie/graphcalc-api",
   "repository": {
     "type": "git",
-    "url": "github.com/andrewpmckenzie/graphcalc-api"
+    "url": "https://github.com/andrewpmckenzie/graphcalc-api.git"
   },
   "keywords": [
     "graph",
