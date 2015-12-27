@@ -1,0 +1,32 @@
+{
+  "name": "graphcalc-api",
+  "version": "1.0.0",
+  "description": "A RESTful API server for graph-calc.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/andrewpmckenzie/graphcalc-api"
+  },
+  "keywords": [
+    "graph",
+    "graph-calc",
+    "api",
+    "REST"
+  ],
+  "author": "andrewpmckenzie@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "graph-calc": "^0.1.0",
+    "mocha": "^2.3.4",
+    "sinon": "^1.17.2",
+    "supertest": "^1.1.0"
+  },
+  "dependencies": {
+    "express": "^4.13.3",
+    "lodash": "^3.10.1"
+  }
+}
