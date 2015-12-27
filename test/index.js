@@ -12,13 +12,36 @@ describe('graphcalc-api', function () {
       mockRequest(server.app)
         .get('/')
         .expect(200, {
-          nodes: {
-            'department': '/node/department/',
-            'teacher': '/node/teacher/',
-            'class': '/node/class/',
-            'student': '/node/student/'
-          },
-          edges: {
+          routes: {
+            node: {
+              'department': '/node/department/',
+              'teacher': '/node/teacher/',
+              'class': '/node/class/',
+              'student': '/node/student/'
+            },
+            edge: {
+              'teaches': '/edge/teaches/',
+              'taughtBy': '/edge/taughtBy/',
+              'attends': '/edge/attends/',
+              'attendedBy': '/edge/attendedBy/',
+              'headOf': '/edge/headOf/',
+              'studentRepOf': '/edge/studentRepOf/',
+              'providedBy': '/edge/providedBy/',
+              'provides': '/edge/provides/'
+            }
+          }
+        }, done);
+    });
+  });
+
+  describe('/edge/', function () {
+    it('lists edge routes.', function (done) {
+      var server = new GraphCalcServer({ graph: TestGraph.createGraph() });
+
+      mockRequest(server.app)
+        .get('/edge/')
+        .expect(200, {
+          routes: {
             'teaches': '/edge/teaches/',
             'taughtBy': '/edge/taughtBy/',
             'attends': '/edge/attends/',
@@ -31,5 +54,23 @@ describe('graphcalc-api', function () {
         }, done);
     });
   });
+
+  describe('/node/', function () {
+    it('lists node routes.', function (done) {
+      var server = new GraphCalcServer({ graph: TestGraph.createGraph() });
+
+      mockRequest(server.app)
+        .get('/node/')
+        .expect(200, {
+          routes: {
+            'department': '/node/department/',
+            'teacher': '/node/teacher/',
+            'class': '/node/class/',
+            'student': '/node/student/'
+          }
+        }, done);
+    });
+  });
+
 
 });
