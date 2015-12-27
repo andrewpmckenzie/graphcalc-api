@@ -172,6 +172,44 @@ describe('graphcalc-api', function () {
           }
         }, done);
     });
+
+    it('takes options to refine the graph.', function (done) {
+      var server = new GraphCalcServer({ graph: TestGraph.createGraph() });
+
+      mockRequest(server.app)
+        .get('/node/teacher/teacher-Sue/graph')
+        .query({ onlyNodeTypes: ['teacher', 'class', 'student'], onlyEdgeTypes: ['teaches', 'attendedBy'] })
+        .expect({
+          graph: {
+            nodes: [
+              { id: 'teacher-Sue', name: 'teacher-Sue', type: 'teacher' },
+              { id: 'class-Chemistry', name: 'class-Chemistry', type: 'class' },
+              { id: 'student-Bobby', name: 'student-Bobby', type: 'student' },
+              { id: 'student-Max', name: 'student-Max', type: 'student' }
+            ],
+            edges: [
+              { id: 'teaches-Sue-Chemistry', name: 'teaches-Sue-Chemistry', type: 'teaches', from: 'teacher-Sue', to: 'class-Chemistry' },
+              { id: 'attendedBy-Chemistry-Bobby', name: 'attendedBy-Chemistry-Bobby', type: 'attendedBy', from: 'class-Chemistry', to: 'student-Bobby' },
+              { id: 'attendedBy-Chemistry-Max', name: 'attendedBy-Chemistry-Max', type: 'attendedBy', from: 'class-Chemistry', to: 'student-Max' }
+            ]
+          }
+        }, done);
+    });
+
+    it('validates options.', function (done) {
+      var server = new GraphCalcServer({ graph: TestGraph.createGraph() });
+
+      mockRequest(server.app)
+        .get('/node/teacher/teacher-Sue/graph')
+        .query({ maxDepth: 'abc' })
+        .expect(function (res) {
+          res.body.stack = null;
+        })
+        .expect({
+          error: 'maxDepth must be a number, but got "abc"',
+          stack: null
+        }, done);
+    });
   });
 
   describe('/graph', function () {
