@@ -4,7 +4,8 @@
   "description": "A RESTful API server for graph-calc.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "doc": "./node_modules/.bin/apidoc -o './doc' -i './lib' -i './test'"
   },
   "homepage": "https://github.com/andrewpmckenzie/graphcalc-api",
   "repository": {
@@ -20,6 +21,7 @@
   "author": "andrewpmckenzie@gmail.com",
   "license": "ISC",
   "devDependencies": {
+    "apidoc": "^0.14.0",
     "chai": "^3.4.1",
     "graph-calc": "^0.1.0",
     "mocha": "^2.3.4",
@@ -31,5 +33,14 @@
     "express": "^4.13.3",
     "graph-calc": "^0.1.1",
     "lodash": "^3.10.1"
+  },
+  "apidoc": {
+    "name": "Graph-Calc API server",
+    "title": "graphcalc-api docs",
+    "header": {
+      "title": "graphcalc-api",
+      "filename": "README.md"
+    },
+    "url": "http://localhost:8080"
   }
 }
