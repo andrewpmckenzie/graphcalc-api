@@ -16,7 +16,9 @@ if [ "$TRAVIS_REPO_SLUG" == "andrewpmckenzie/graphcalc-api" ] && [ "$TRAVIS_NODE
   git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/andrewpmckenzie/graphcalc-api gh-pages > /dev/null
 
   cd gh-pages
-  find . -not -name '.git*' | xargs rm -r
+  mv .git ../.git_backup
+  rm -r *
+  mv ../.git_backup .git
   cp -rf $HOME/api-docs/* .
   git add -f .
   git commit -m "Updating autogen'd docs for travis build $TRAVIS_BUILD_NUMBER."
