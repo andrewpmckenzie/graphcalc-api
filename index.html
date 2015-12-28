@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Graphcalc-api by andrewpmckenzie</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Graphcalc-api</h1>
+        <p>RESTful API for graph-calc.</p>
+
+        <p class="view"><a href="https://github.com/andrewpmckenzie/graphcalc-api">View the Project on GitHub <small>andrewpmckenzie/graphcalc-api</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/andrewpmckenzie/graphcalc-api/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/andrewpmckenzie/graphcalc-api/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/andrewpmckenzie/graphcalc-api">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="graphcalc-api-" class="anchor" href="#graphcalc-api-" aria-hidden="true"><span class="octicon octicon-link"></span></a>graphcalc-api <a href="https://travis-ci.org/andrewpmckenzie/graphcalc-api"><img src="https://travis-ci.org/andrewpmckenzie/graphcalc-api.svg?branch=master" alt="Build Status"></a>
+</h1>
+
+<p>A RESTful API for <a href="http://electronifie.github.io/graph-calc/index.html">graph-calc</a>.</p>
+
+<p><strong>Installation:</strong> <code>npm install graphcalc-api</code>  </p>
+
+<p><strong>Usage:</strong>  </p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> graphCalcApiServer <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>graphcalc-api<span class="pl-pds">'</span></span>);
+<span class="pl-k">var</span> MyGraph <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>./graph<span class="pl-pds">'</span></span>); <span class="pl-c">// your graphcalc implementation</span>
+
+<span class="pl-k">var</span> graph <span class="pl-k">=</span> <span class="pl-en">graphCalcApiServer</span>({
+  port<span class="pl-k">:</span> <span class="pl-c1">8080</span>,
+  graph<span class="pl-k">:</span> <span class="pl-k">new</span> <span class="pl-en">MyGraph</span>()
+});
+</pre></div>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/andrewpmckenzie">andrewpmckenzie</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
