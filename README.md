@@ -1,4 +1,4 @@
-# graphcalc-api [![Build Status](https://travis-ci.org/andrewpmckenzie/graphcalc-api.svg?branch=master)](https://travis-ci.org/andrewpmckenzie/graphcalc-api)
+[![Build Status](https://travis-ci.org/andrewpmckenzie/graphcalc-api.svg?branch=master)](https://travis-ci.org/andrewpmckenzie/graphcalc-api)
 
 A RESTful API for [graph-calc](http://electronifie.github.io/graph-calc/index.html).
 
